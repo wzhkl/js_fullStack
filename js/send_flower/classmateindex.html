@@ -1,0 +1,71 @@
+“丰城-鄢启轩-东-1615   19:25:39  查看原文
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>talk in js-代理模式</title>
+</head>
+<body>
+    <script>
+     //   object
+     // 描述对象
+     // 对象字面量      JSON Object
+        const xsj ={
+          name:'小明', //字符串类型''
+          age:22,
+          single:true,
+          hometown:'浙江',
+          room:1319,           // 属性
+          yz:46,
+        //   函数功能   行为方法    形参:target
+          sendFlower: function(target){
+            //   console.log(target.name);
+            target.receiveFlower(xsj);
+          }
+        };
+        const meimei={
+            name: '小梅',
+            age: 17,
+            mood:50,
+            receiveFlower:function(sender){
+                // 如果心情指数>80 收花,否则拒绝
+                // if(sender.yz<85){
+                //     console.log('没空');
+                // }else{
+                //     console.log('❀备胎排序一下');
+                // }
+                 console.log('收到了❀');
+            },
+            listenGoodMood:function(){
+              //  if(meimei.mood<=80)
+                // 心情不好
+                // 定时器
+                    console.log('当前心情是'+meimei.mood);
+                    var Timer=setInterval(function()
+                    {
+                        meimei.mood=parseInt((Math.random()*100));
+                        console.log(meimei.mood);
+                        if(meimei.mood>=85)
+                        {
+                        console.log('心情好了');
+                        meimei.receiveFlower();
+                        clearInterval(Timer);
+                        }
+                        else
+                        console.log('心情还不够好');
+                    }, 1000);
+            }
+        };
+        const huahua={
+            name:'小花',
+        //    与梅梅实现了同样的接口
+            receiveFlower:function(sender){
+                meimei.listenGoodMood(function(){
+                })
+            }
+        }
+    </script>
+</body>
+</html>
