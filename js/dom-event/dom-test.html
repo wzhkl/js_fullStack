@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <li class="aa">
+                <a href="#" class="bb">1</a>
+                <a href="#" class="cc">2</a>
+                <a href="#" class="dd">3</a>
+                <a href="#" class="ee">4</a>
+                <a href="#" class="ff">5</a>
+        </li>
+<script>
+    var li1 = document.getElementsByClassName('aa')[0];
+    li1.addEventListener('click',function(event) {
+       if (event.target.TagName= "li"){
+        console.log(event.target);
+        }
+        else {
+            console.log(event.currentTarget);
+        }
+    });
+    for(var i=0;i<li1.children.length;i++){
+        li1.children[i].addEventListener('click',function(event){
+        event.stopPropagation();  //在子元素上阻止冒泡
+  })
+}
+
+</script>
+</body>
+</html>
