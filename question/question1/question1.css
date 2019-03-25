@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html,body {
+    width: 100%;
+    height: 100%;
+}
+.page {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient( #703dc8,#3383ea);
+    position: relative;
+}
+.shenti {
+    width: 125px;
+    height: 205px;
+    background: url(./maoshenti.png) no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.wei {
+    width: 70px;
+    height: 200px;
+    background: url(./maowei.png) no-repeat;
+    animation: jiuwei 2s infinite linear;
+    transform-origin:50% 100%;
+    position: absolute;
+    top: -180px;
+    left: 0;
+}
+@keyframes jiuwei {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    25% {
+        transform: rotateZ(5deg);
+    }
+    50% {
+        transform: rotateZ(0deg);
+    }
+    75% {
+        transform: rotateZ(-5deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+.zhua {
+    width: 40px;
+    height: 85px;
+    background: url(./maozhua.png) no-repeat;
+    animation: naosini 2s infinite linear;
+    transform-origin:50% 0%;
+    position: absolute;
+    top: 188px;
+    left: 68px;
+}
+@keyframes naosini {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    25% {
+        transform: rotateZ(5deg);
+    }
+    50% {
+        transform: rotateZ(0deg);
+    }
+    75% {
+        transform: rotateZ(-5deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+.yan1 {
+    width: 5px;
+    height: 5px;
+    background: url(./maoyan1.png) no-repeat;
+    position: absolute;
+    top:185px;
+    left:95px;
+}
+.yan2 {
+    width: 5px;
+    height: 5px;
+    background: url(./maoyan2.png) no-repeat;
+    position: absolute;
+    top:175px;
+    left:75px;
+}
+.zui {
+    width: 5px;
+    height: 5px;
+    background: url(./maozui.png) no-repeat;
+    position: absolute;
+    top:190px;
+    left:80px;
+}
