@@ -6,25 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>question3</title>
-    <style>
-    
-    </style>
     <link href="https://cdn.bootcss.com/weui/1.0.1/style/weui.min.css" rel="stylesheet">
-
+    <style>
+    table {
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    tr,td {
+        width: auto;
+        border: 1px solid #000;
+    }
+    .btn.btn-primary {
+        width: auto;
+        background-color: rgba(4, 168, 4,0.6);
+    }
+    </style>
 </head>
 
 <body>
+    <form class="needs-validation form-container" novalidate id="form">
     <div class="weui-cells weui-cells_form">
-            <div class="weui-cell">
-                    <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
-                    <div class="weui-cell__bd">
-                        <input class="weui-input" type="text"  placeholder="请输入姓名">
-                    </div>
-                </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label ">姓名</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input nameInput" type="text" placeholder="请输入姓名">
+            </div>
+        </div>
         <div class="weui-cell">
             <div class="weui-cell__hd"><label class="weui-label">qq</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入qq号">
+                <input class="weui-input qqInput" type="number" pattern="[0-9]*" placeholder="请输入qq号">
             </div>
         </div>
         <div class="weui-cell weui-cell_vcode">
@@ -32,17 +43,71 @@
                 <label class="weui-label">手机号</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="tel" placeholder="请输入手机号">
+                <input class="weui-input phoneInput" type="tel" placeholder="请输入手机号">
             </div>
         </div>
         <div class="weui-cell">
             <div class="weui-cell__hd"><label for="" class="weui-label">日期</label></div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="date" value="">
+                <input class="weui-input dateInput" type="date" value="">
             </div>
         </div>
+        <button class="btn btn-primary" type="submit">提交</button>
     </div>
-    <a href="javascript:;" class="weui-btn weui-btn_plain-default" style="background-color:forestgreen">按钮</a>
+    </form>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <td>姓名</td>
+                    <td>qq</td>
+                    <td>手机号</td>
+                    <td>生日</td>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- <tr>
+                    <td>吴争晖</td>
+                    <td>123456</td>
+                    <td>1234680</td>
+                    <td>120920</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+    const form = document.getElementById('form');
+    const nameInput = document.querySelector('.nameInput');
+    const qqInput = document.querySelector('.qqInput');
+    const phoneInput = document.querySelector('.phoneInput');
+    const dateInput = document.querySelector('.dateInput');
+    const tablebody = document.getElementById('tableBody');
+    console.log(nameInput.value);
+    function insertNode(info){
+        const keys = Object.keys(info);
+        console.log(keys);
+        const tr = document.createElement('tr');
+        for (let i = 0; i < keys.length; i++ ) {
+            const td = document.createElement('td');
+            const text = document.createTextNode(info[keys[i]]);
+            td.appendChild(text);
+            tr.appendChild(td);
+        }
+        tablebody.appendChild(tr);
+    }
+
+    form.addEventListener('submit',(event) => {
+        event.preventDefault();
+        const name = nameInput.value;
+        const qq = qqInput.value;
+        const phone = phoneInput.value;
+        const date = dateInput.value;
+        console.log(name);
+        insertNode({
+            name:name,qq,phone,date,
+        })
+    })
+    </script>
 </body>
 
 </html>

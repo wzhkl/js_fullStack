@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类数组</title>
+</head>
+<body>
+    <ul id="lists">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <!-- [1,2,3,4] -->
+    </ul>
+    <script>
+        // 类数组
+    const lis = document.querySelectorAll('#lists li');
+    console.log(lis);
+    const lis_array = Array.from(lis);
+    const lisHTMLContent = lis_array.map(liNode => liNode.innerHTML );
+    console.log(lisHTMLContent);
+    // 真数组
+    const arr = [1,2,3];
+
+    function foo() {
+        console.log(arguments);
+        const arguments_arr = Array.from(arguments);
+        const map_arr = arguments_arr.map((arg) => {
+            if (arg >= 10){
+                return arg*3
+            }
+            return arg;
+            //  >=10  *3
+            //  <10  不变
+        })
+        return map_arr;
+        // console.log(map_arr);
+    }
+    const bar = foo(1,32,3,32)
+    console.log(bar);
+    
+
+   
+    </script>
+</body>
+</html>
