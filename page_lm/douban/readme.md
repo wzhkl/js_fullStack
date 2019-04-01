@@ -13,3 +13,7 @@ Zoom属性是IE浏览器的专有属性， 它可以设置或检索对象的缩�
 - vertical-align  设置元素的垂直对齐方式(兄弟元素之间)
 - text-align   规定元素中的文本的水平对齐方式
 - align-items  定义flex子项在flex容器的当前行的侧轴（纵轴）方向上的对齐方式
+- -webkit-line-clamp：2   文本内容超出两行省略号
+- text-overflow: clip / ellipsis;  修剪文本 / 当文本溢出包含元素时,显示省略符号来代表被修剪的文本
+- letter-spacing   设置 h1 和 h2 元素的字母间距
+- word-wrap: break-word; 允许长单词或 URL 地址换行到下一行
