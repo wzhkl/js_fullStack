@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js框架设计</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+    // 浏览器的页面渲染机制
+    // DOM Ready
+    function JQueryEle(ele) {
+        this.ele = ele;
+    }
+    JQueryEle.prototype.html = function (str) {
+        this.ele.innerHTML = str;
+    }
+    const jQuery = {}; //命名空间   框架名字叫jQuery
+    jQuery.wrapper = function(ele) {
+        // 将ele对象封装于此
+        // jQuery里的节点对象， 不是简单的html节点，而是一个jQuery对象
+        const jQueryEle = new JQueryEle(ele);
+        return jQueryEle;
+    }
+    function $(selector) {
+        if (typeof selector === 'function') {
+            document.addEventListener('DOMContentLoaded',selector);
+        }else if (typeof selector === 'string') {
+            // $() 是函数  有运行结果，类型 prototype方法
+            const ele = document.querySelector(selector);
+            if (ele) {
+                return jQuery.wrapper(ele);
+            }
+            // 实现 $('#root').html('')
+        }
+    }
+    $(function () {
+        console.log('DOM Ready');
+        $('#root').html('<p>我不要去外星球</p>')
+    })    
+    </script>
+</body>
+</html>
