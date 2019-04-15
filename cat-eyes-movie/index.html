@@ -122,7 +122,7 @@
     </section>
     <!-- section5 -->
     <section class="movie-photo section-seperate">
-      <p class="action-list section-yil">视频和照片</p>
+      <p class="action-list section-til">视频和照片</p>
       <ul class="movie-photo__lists">
         <!-- <li class="stage-img-container">
           <a href="#" class="link">
@@ -131,6 +131,164 @@
               </div>
           </a>
         </li> -->
+      </ul>
+    </section>
+    <!-- section 6 -->
+    <section class="section-seperate section-expander">
+      <p class="section-til pos_r">讨论
+        <span class="join-comment">参与讨论</span>
+      </p>
+      <ul class="movie-comment" >
+        <li class="comment-item">
+          <div class="comment-item__sort">
+            <span>全部</span>
+            <span class="comment-item__num" id="comment-item__num1">1231232</span>
+          </div>
+        </li>
+        <li class="comment-item">
+          <div class="comment-item__sort">
+            <span>好评</span>
+            <span class="comment-item__num" id="comment-item__num2">1231232</span>
+          </div>
+        </li>
+        <li class="comment-item">
+          <div class="comment-item__sort">
+            <span>差评</span>
+            <span class="comment-item__num" id="comment-item__num3">1231232</span>
+          </div>
+        </li>
+        <li class="comment-item">
+          <div class="comment-item__sort">
+            <span>点映</span>
+            <span class="comment-item__num" id="comment-item__num4">1231232</span>
+          </div>
+        </li>
+        <li class="comment-item">
+          <div class="comment-item__sort">
+            <span>购票</span>
+            <span class="comment-item__num" id="comment-item__num5">1231232</span>
+          </div>
+        </li>
+        <li class="comment-item">
+          <div class="comment-item__sort">
+            <span>认证作者</span>
+            <span class="comment-item__num" id="comment-item__num6">1231232</span>
+          </div>
+        </li>
+        <li class="comment-item">
+          <div class="comment-item__sort">
+            <span>同城</span>
+            <span class="comment-item__num" id="comment-item__num7">1231232</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <!-- section 7 -->
+    <section class="section-seperate section-expander">
+      <p class="action-list section-til">精选</p>
+      <ul class="chosen-comment" id="chosen-comment">
+        <li class="chosen-comment__item">
+          <div class="item-avatal">
+            <img src="" alt="">
+          </div>
+          <div class="item-detail">
+            <div class="item-detail__hd">
+              <div>
+                <span class="nick-name" id="nick-name">
+                  ksnxs
+                </span>
+                <span class="level">
+                  <img src="" alt="">
+                </span>
+              </div>
+              <p class="item-score__desc">给这部电影打了<span>100</span>分</p>
+            </div>
+            <div class="item-detail__content">
+              <p>喻导很帅</p>
+            </div>
+            <div class="item-detail__footer">
+              <span class="item-detail__time">03-22</span>
+              <div class="pull-right">
+                <a href="" class="link comment-like">
+                  <i class="icon icon-approve"></i>
+                  <span>432</span>
+                </a>
+                <a href="" class="link comment-reply">
+                  <i class="icon icon-approve"></i>
+                  <span>432</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="chosen-comment__item2">
+            <div class="item-avatal">
+              <img src="" alt="">
+            </div>
+            <div class="item-detail">
+              <div class="item-detail__hd">
+                <div>
+                  <span class="nick-name" id="nick-name">
+                    ksnxs
+                  </span>
+                  <span class="level">
+                    <img src="" alt="">
+                  </span>
+                </div>
+                <p class="item-score__desc">给这部电影打了<span>100</span>分</p>
+              </div>
+              <div class="item-detail__content">
+                <p>喻导很帅</p>
+              </div>
+              <div class="item-detail__footer">
+                <span class="item-detail__time">03-22</span>
+                <div class="pull-right">
+                  <a href="" class="link comment-like">
+                    <i class="icon icon-approve"></i>
+                    <span>432</span>
+                  </a>
+                  <a href="" class="link comment-reply">
+                    <i class="icon icon-approve"></i>
+                    <span>432</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+        <li class="chosen-comment__item3">
+              <div class="item-avatal">
+                <img src="" alt="">
+              </div>
+              <div class="item-detail">
+                <div class="item-detail__hd">
+                  <div>
+                    <span class="nick-name" id="nick-name">
+                      ksnxs
+                    </span>
+                    <span class="level">
+                      <img src="" alt="">
+                    </span>
+                  </div>
+                  <p class="item-score__desc">给这部电影打了<span>100</span>分</p>
+                </div>
+                <div class="item-detail__content">
+                  <p>喻导很帅</p>
+                </div>
+                <div class="item-detail__footer">
+                  <span class="item-detail__time">03-22</span>
+                  <div class="pull-right">
+                    <a href="" class="link comment-like">
+                      <i class="icon icon-approve"></i>
+                      <span>432</span>
+                    </a>
+                    <a href="" class="link comment-reply">
+                      <i class="icon icon-approve"></i>
+                      <span>432</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          </li>
       </ul>
     </section>
     <!-- toast -->
@@ -163,6 +321,8 @@
           celebrity(res.data.person)
           booking(res.data.booking)
           photo(res.data.pictures)
+          commentNum(res.data)
+          comment(res.data.comment)
         }
       })
       function star(e) {
@@ -231,9 +391,49 @@
           </a>
         </li>`)
         }
+      
       }
 
+      // 讨论
+      function commentNum(e) {
+        $('#comment-item__num1').html(e.commentTotal)
+        $('#comment-item__num2').html(e.commentNum.good)
+        $('#comment-item__num3').html(e.commentNum.bad)
+        $('#comment-item__num4').html(e.commentNum.dy)
+        $('#comment-item__num5').html(e.commentNum.bought)
+        $('#comment-item__num6').html(e.commentNum.author)
+        $('#comment-item__num7').html(e.commentNum.sameCity)
+      }
 
+      //评论
+      function comment(e) {
+        $('.chosen-comment__item .item-avatal img').attr('src',e[0].avatal)
+        $('.chosen-comment__item #nick-name').html(e[0].nickName)
+        $('.chosen-comment__item .level img').attr('src',e[0].lever)
+        $('.chosen-comment__item .item-score__desc span').html(e[0].grade)
+        $('.chosen-comment__item .item-detail__content p').html(e[0].detail)
+        $('.chosen-comment__item .item-detail__time').html(e[0].data)
+        $('.chosen-comment__item .pull-right .comment-like span').html(e[0].like)
+        $('.chosen-comment__item .pull-right .comment-reply span').html(e[0].reply)
+
+        $('.chosen-comment__item2 .item-avatal img').attr('src',e[1].avatal)
+        $('.chosen-comment__item2 #nick-name').html(e[1].nickName)
+        $('.chosen-comment__item2 .level img').attr('src',e[1].lever)
+        $('.chosen-comment__item2 .item-score__desc span').html(e[1].grade)
+        $('.chosen-comment__item2 .item-detail__content p').html(e[1].detail)
+        $('.chosen-comment__item2 .item-detail__time').html(e[1].data)
+        $('.chosen-comment__item2 .pull-right .comment-like span').html(e[1].like)
+        $('.chosen-comment__item2 .pull-right .comment-reply span').html(e[1].reply)
+
+        $('.chosen-comment__item3 .item-avatal img').attr('src',e[2].avatal)
+        $('.chosen-comment__item3 #nick-name').html(e[2].nickName)
+        $('.chosen-comment__item3 .level img').attr('src',e[2].lever)
+        $('.chosen-comment__item3 .item-score__desc span').html(e[2].grade)
+        $('.chosen-comment__item3 .item-detail__content p').html(e[2].detail)
+        $('.chosen-comment__item3 .item-detail__time').html(e[2].data)
+        $('.chosen-comment__item3 .pull-right .comment-like span').html(e[2].like)
+        $('.chosen-comment__item3 .pull-right .comment-reply span').html(e[2].reply)
+      }
 
       // // 演员表
       // function celebrity(arr) {
