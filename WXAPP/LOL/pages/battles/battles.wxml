@@ -1,0 +1,36 @@
+<view class="container battle-list">
+    <block wx:for="{{battles}}">
+        <view class="lol">
+        <view class="header">
+            <view class="image-section">
+                <image style="width:100px;height:100px;background-color:#eeeeee" mode="aspectFit" src="{{item.src}}" />
+            </view>
+            <view class="ml">
+                <view class="rk">
+                    <view class="result">
+                        <text style="color:{{item.color}}">{{item.result}}   </text>
+                        <text>{{item.score}}</text>
+                    </view>
+                    <view class="kinds">
+                        <text>{{item.kind}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="footer">
+            <view class="behind">
+            <view class="qwer">
+                <view class="time">{{item.time}}</view>
+                <view class="isfriend">
+                    <text style="font-weight:bold">{{item.isfriend}}</text></view>
+            </view>
+            <view class="icon">
+                <a href="#">
+                    
+                </a>
+            </view>
+            </view>
+        </view>
+        </view>
+    </block>
+</view>
