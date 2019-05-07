@@ -1,0 +1,12 @@
+/* components/tabbar/index.wxss */
+.weibo-tabbar{
+  z-index: 99;
+  bottom: 0;
+  height: 97rpx;
+  padding: 12rpx 0rpx;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
