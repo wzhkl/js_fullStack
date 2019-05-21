@@ -14,8 +14,9 @@ request('https://www.smzdm.com/youhui/', (err, res) => {
             const price = $('.listTitle .red',this).text();
             const img = $('.picLeft img',this).attr('src');
             const desc = $('.lrInfo p',this).text().trim();
+            const sponsor = $('.mall',this).text();
             console.log({
-                title,price,img,desc
+                title,price,img,desc,sponsor
             });
         })
     }
