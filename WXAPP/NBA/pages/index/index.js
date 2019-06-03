@@ -73,7 +73,7 @@ Page({
     this.handAgendaDate();
   },
   turnRight() {
-    // es6 解
+    // es6 解构
     let {current, gamedate} = this.data;
     if (current >= gamedate.length-1) return;
     current++;

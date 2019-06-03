@@ -1,0 +1,11 @@
+<!--components/newsBox/index.wxml-->
+<view class="news-wrapper">
+    <view class="news-wrapper-up">
+        <view class="news-title">
+            <text>{{title}}</text>
+        </view>
+    </view>
+    <view class="news-tag">
+        <text decode='true'>{{isOld ? "更新" : "创建"}}时间：</text>
+    </view>
+</view>

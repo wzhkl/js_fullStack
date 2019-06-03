@@ -11,7 +11,7 @@
     </view>
   </block>
   <block wx:else>
-    <view class='item-right' style='color: #b1b1b1' bindtap='openShare'>
+    <view class='item-right' style='color: #b1b1b1' bindtap='goInfo'>
       <icon type='wode' color='{{isIndex ? "#b1b1b1" : "#000000"}}' size='45'></icon>
       <text class='2'>我的</text>
     </view>
