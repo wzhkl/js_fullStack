@@ -29,7 +29,9 @@ var mergeTwoLists = function (l1, l2) {
   // console.log(ans);
 
   // var node;
+  console.log(ans[0]);
   return ans[0];
+  
 }
 
 var a1 = new ListNode(1);
@@ -45,6 +47,7 @@ var b3 = new ListNode(4);
 b2.next = b3;
 
 var l3 = mergeTwoLists(a1, b1);
+console.log(l3);
 while(l3) {
   console.log(l3.val);
   l3 = l3.next;
