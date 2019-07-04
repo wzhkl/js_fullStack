@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // this指向
+    window.val = 1;
+    var obj = {
+      val : 3,
+      db1 : function () {
+        console.log(this);
+        this.val *=2;
+        val *=2;
+        console.log(val);
+        console.log(this.val);
+      }
+    }
+    obj.db1();
+    var func = obj.db1;
+    func();
+  </script>
+</body>
+</html>

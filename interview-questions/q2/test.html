@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		Function.prototype.myCall = function(context){
+			context = context || window;   
+			context.fn = this;    //context指的就是传进去的参数，这里其实就是指的就是调用的对象，即another
+			var args = [],result;    //this指的是上下文的环境，这里就是指的eat的方法，即在another对象上创建了eat的方法
+			for(let i = 1;i < arguments.length;i++){
+				args.push(arguments[i]);
+			}
+			result = context.fn(...args);
+			delete context.fn;
+			return result;
+		}
+ 
+		var person = {
+			name: 'qiugu',
+			eat: function(){
+				console.log(this.name);
+			}
+		}
+ 
+		var another = {
+			name: 'yasuo',
+			drink: function(){
+				console.log(this.name);
+			}
+		}
+    var a = another.drink;
+    a.myCall(person);
+    a.myCall(another)
+		person.eat.myCall(another);//qiugu
+	</script>
+</body>
+</html>

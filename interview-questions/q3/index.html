@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- js中的浅拷贝和深拷贝 -->
+  <!-- <script>
+    //结构
+    function example () {
+      return [1,2,3]
+    }
+    let [a,b,c] = example() ;
+    //数组结构
+    let [x,y] = [1,2];
+    //对象结构
+    let {foo,bar} = {foo:'aaa',bar:'bbb'}
+  </script> -->
+
+  <!-- <script>
+      //浅拷贝 会受拷贝的数据的影响(只有非基本的数据类型会被影响)，若obj发生变化，obj2与obj3会跟着变化
+      let obj = {
+        name : '蜗牛',
+        age: 26,
+        like : ['sing']
+      }
+      obj.like.push('coding');
+      let obj2 = Object.assign({},obj)//es6的对象拼接
+      let obj3 = Object.assign({...obj});
+
+      console.log(obj2);
+      console.log(obj3);
+
+      // 深拷贝
+      let obj4 = JSON.stringify(obj)
+      console.log(typeof(obj4))
+      obj.name = '蜗牛小生'
+      console.log(obj4)
+      let obj5 = JSON.parse(obj4);
+      console.log(typeof(obj5))
+      console.log(obj5)
+    </script> -->
+
+    <script>
+      //深拷贝的原理
+      function deepClone (obj, hash = new WeakMap()) {
+        if (obj instanceof RegExp) {
+          return RegExp(obj);
+        }
+        if (obj instanceof Date) {
+          return Date
+        }
+        if (obj === null || typeof obj !== 'object') {
+          // 如果不是复杂的数据类型，直接返回
+          return obj
+        }
+        if (hash.has(obj)){
+          return hsah.get(obj)
+        }
+        // 如果obj是数组，那么obj.constructor是 [function: error]
+        // 如果obj是对象，那么obj.constructor是 [function:]
+        let t = new Obj.constructor();
+        hash.set(obj,t);
+        for (let key in obj) {
+          //递归
+          if (obj.hasOwnProperty(key)) {//是否是当前自身的属性
+            t[key] = deepClone(obj[key],hash);
+            
+          }
+        }
+        return t;
+      }
+    </script>
+</body>
+</html>
