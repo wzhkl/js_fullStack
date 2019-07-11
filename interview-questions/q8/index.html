@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>parseInt()函数</title>
+</head>
+<body>
+  <script>
+    ['1', '2', '3'].map(parseInt);
+    ['1', '2', '3'].map(callback)
+    var str = '123';
+    var number = parseInt(str);  // 123
+
+    var get = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(666);
+      }, 3000);
+    })
+    // get.then(res => {
+    //   console.log(res)
+    // })
+    // get.then(console.log)
+
+    // get.then(callback);
+    // 相当于： get.then((a, b, c) => {
+    //   console.log(a, b, c)
+    // });
+    function callback(a, b) {
+      console.log(a, b)
+    }
+  </script>
+</body>
+</html>
