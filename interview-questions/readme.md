@@ -11,7 +11,7 @@
 
 2. b.apply(a,[]) 和call的区别是第二个参数必须是个数组
 
-3. b.call() 或 b.aply() 此时this的作用域会指向window
+3. b.call() 或 b.apply() 此时this的作用域会指向window
 
 4. c= b.bind(a)
    c()
