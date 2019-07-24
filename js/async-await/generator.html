@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>generator函数</title>
+</head>
+<body>
+  <script>
+    function* test() {
+      console.log(0);
+      let a = yield 1
+      console.log('a', a);
+      let b = yield 2
+      console.log('b', b);
+      let c = yield 3
+      console.log('c', c);
+    }
+    // 惰性的
+    // test() 并不能执行，只能生成一个对象，对象上有 next 属性，调用next一步步执行
+    var g = test();
+    let gn = g.next();
+    while (gn.done === false) {
+      gn = g.next();
+    }
+
+    // 让 generate 函数 自己全部执行完
+    
+    function* test1() {
+      console.log(0);
+      let a = yield true
+      console.log('a', a);
+      let b = yield 10000
+      console.log('b', b);
+    }
+    function autoRun(generatorFun) {
+      let g = generatorFun();
+      let gn = g.next();
+      while (!gn.done) {
+        gn = g.next(gn.value)
+      }
+    }
+    autoRun1(test1);
+    autoRun1(test);
+
+    // 递归方法实现 autoRun
+    function autoRun1(generatorFun) {
+      var g = generatorFun();
+      function next(data) {
+        var result = g.next(data);
+        if (result.done) return;
+        next(result.value);
+      }
+      next()
+    }
+
+    let fooPromise = function () {
+      return Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve()
+        }, 1000);
+      })
+    }
+    _asyncToGenerator(
+      function* () {
+        let a = yield fooPromise();
+        let b = yield 2;
+      }
+    )
+    function _asyncToGenerator(generateFun) {
+      return new Promise((resolve, reject) => {
+        let gen = generateFun();
+        function step(key, arg) {
+          let info = {};
+          info = gen[key]();
+          if (info.done) {
+            resolve()
+          }else {
+            return Promise.resolve()
+          }
+        };
+        step('next');
+      })
+    }
+  </script>
+</body>
+</html>
