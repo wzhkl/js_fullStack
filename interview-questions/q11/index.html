@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>实现简易的数据双向绑定</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" id="txt">
+    <p id="show-txt"></p>
+  </div>
+  <script>
+
+    var obj = {};
+    var oInput = document.getElementById('txt');
+    var oP = document.getElementById('show-txt');
+
+    Object.defineProperties(obj, {
+      val: {
+        configurable: true,
+        get() { //读取属性
+          oInput.value = 0;
+          oP.innerHTML = 0;
+          return null;
+        },
+        set(newVal) { // 写入属性
+          console.log(newVal)
+          oInput.value = newVal;
+          oP.innerHTML = newVal;
+        }
+      }
+    })
+    // oInput.value = obj.val
+    oInput.addEventListener('keyup', function () {
+      obj.val = oInput.value;
+    }, false)
+
+  </script>
+</body>
+
+</html>
